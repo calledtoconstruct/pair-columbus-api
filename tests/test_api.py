@@ -9,8 +9,12 @@ from api import get_maltese
 
 def test_given_a_working_internet_connection_when_requesting_dogs_then_ok_is_returned():
     status_code, dog = get_maltese()
-    assert(status_code == 200)
+    expected_value = 200
+    assert(status_code == expected_value)
 
 def test_given_a_working_internet_connection_when_requesting_dogs_then_url_begins_with_maltese():
     status_code, dog = get_maltese()
-    assert(dog == 'https://images.dog.ceo/breeds/maltese')
+    last_slash = dog.rfind('/')
+    value = dog[:last_slash]
+    expected_value = 'https://images.dog.ceo/breeds/maltese'
+    assert(value == expected_value)
