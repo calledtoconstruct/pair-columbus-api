@@ -11,3 +11,6 @@ def test_given_a_working_internet_connection_when_requesting_dogs_then_ok_is_ret
     status_code, dog = get_maltese()
     assert(status_code == 200)
 
+def test_given_a_working_internet_connection_when_requesting_dogs_then_url_begins_with_maltese():
+    status_code, dog = get_maltese()
+    assert(dog == 'https://images.dog.ceo/breeds/maltese')
