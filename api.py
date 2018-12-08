@@ -2,8 +2,9 @@
 import requests
 import json
 
-def get_maltese():
-    text = '{"message":"https://images.dog.ceo/breeds/maltese/asdf.jpg"}'
+def get_random_maltese():
+    response = requests.get('https://dog.ceo/api/breed/maltese/images/random')
+    text = response.text
     data = json.loads(text)
     message = data["message"]
     status_code = 200
